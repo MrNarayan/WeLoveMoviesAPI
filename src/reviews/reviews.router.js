@@ -3,12 +3,14 @@ const controller = require("./reviews.controller");
 const methodNotAllowed = require("../errors/methodNotAllowed");
 
 // TODO: Add your routes here
-router.route("/").post(controller.create).all(methodNotAllowed);
-
 router
-  .route("/:theaterId")
+  .route("/:reviewId")
   .put(controller.update)
-  .delete(controller.delete)
+  .delete(controller.destroy)
   .all(methodNotAllowed);
+
+router.route("/")
+	.get(controller.readReviews).all(methodNotAllowed);
+
 
 module.exports = router;

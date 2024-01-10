@@ -21,6 +21,15 @@ async function list() {
     .then(reduceMovies);
 }
 
+async function create(post) {
+  //your solution here
+  return db("posts")
+    .insert(post)
+    .returning("*")
+    .then((createdRecords) => createdRecords[0]);
+}
+
 module.exports = {
+  create,
   list,
 };

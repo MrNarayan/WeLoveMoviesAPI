@@ -3,12 +3,7 @@ const controller = require("./theaters.controller");
 const methodNotAllowed = require("../errors/methodNotAllowed");
 
 // TODO: Add your routes here
-router.route("/").post(controller.create).all(methodNotAllowed);
-
-router
-  .route("/:theaterId")
-  .put(controller.update)
-  .delete(controller.delete)
-  .all(methodNotAllowed);
+router.route("/")
+  .get(controller.list).all(methodNotAllowed);
 
 module.exports = router;
