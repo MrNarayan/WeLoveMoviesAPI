@@ -9,7 +9,7 @@ const theatersRouter = require("./theaters/theaters.router");
 const reviewsRouter = require("./reviews/reviews.router");
 
 // TODO: Add your code here
-
+app.use(cors());
 app.use(express.json());
 
 app.use("/movies", moviesRouter);
